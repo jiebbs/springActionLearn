@@ -1,11 +1,13 @@
 package com.jiebbs.springLearn.baseKnowledge.chapter2.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 
 import com.jiebbs.springLearn.baseKnowledge.chapter2.bean.CompactDisc;
 import com.jiebbs.springLearn.baseKnowledge.chapter2.bean.MediaPlayer;
 import com.jiebbs.springLearn.baseKnowledge.chapter2.bean.impl.CDPlayer;
-import com.jiebbs.springLearn.baseKnowledge.chapter2.bean.impl.SgtPeppers;
 
 /**
  * spring配置类
@@ -20,14 +22,11 @@ import com.jiebbs.springLearn.baseKnowledge.chapter2.bean.impl.SgtPeppers;
 
 //@Configuration
 //@ComponentScan(basePackageClasses= {CompactDisc.class})
-
+@Configuration
+@Import(com.jiebbs.springLearn.baseKnowledge.chapter2.config.CDConfig.class) //引入其他设置类
+@ImportResource("classpath:chapter2.spring-context.xml") //引入xml设置文件
 public class CDPlayerConfig {
 	
-	//显式声明bean
-	@Bean(value="lonelyHeardsClubBand")
-	public CompactDisc cd() {
-		return new SgtPeppers();
-	}
 	@Bean
 	public MediaPlayer player(CompactDisc cd) {
 		return new CDPlayer(cd);

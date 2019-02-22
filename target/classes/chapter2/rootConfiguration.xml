@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<!-- 
+		通过设置总文件，来包含各种文件配置文件
+		xml通过将配置类当做bean引入，就可以将配置引入进来
+	-->
+	
+	<bean class="com.jiebbs.springLearn.baseKnowledge.chapter2.config.CDPlayerConfig"/>
+	<import resource="chapter.spring-context.xml"/>
+
+</beans>
