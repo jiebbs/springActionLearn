@@ -2,6 +2,8 @@ package com.jiebbs.springLearn.baseKnowledge.chapter2.bean.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import com.jiebbs.springLearn.baseKnowledge.chapter2.bean.CompactDisc;
 
 public class BlackDisc implements CompactDisc {
@@ -12,6 +14,13 @@ public class BlackDisc implements CompactDisc {
 	
 	
 	public BlackDisc() {}
+
+	//@Value的作用与@Autowired 非常相识
+	public BlackDisc(@Value("${disc.title}")String title,@Value("${disc.artist}")String artist) {
+		this.title = title;
+		this.artist = artist;
+	}
+
 
 
 	public BlackDisc(String title, String artist, List<String> tracks) {
@@ -55,5 +64,8 @@ public class BlackDisc implements CompactDisc {
 	public void play() {
 		System.out.println("Playing "+title+" by "+ artist);
 	}
-
+	@Override
+	public void playTrack(int trackNum) {
+		System.out.println("Playing "+title+" by "+ artist +" playing track on "+tracks.get(trackNum-1));
+	}
 }

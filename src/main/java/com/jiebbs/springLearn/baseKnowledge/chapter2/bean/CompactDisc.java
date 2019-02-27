@@ -8,4 +8,6 @@ package com.jiebbs.springLearn.baseKnowledge.chapter2.bean;
 public interface CompactDisc {
 	
 	void play() ;
+	
+	void playTrack(int trackNum);
 }

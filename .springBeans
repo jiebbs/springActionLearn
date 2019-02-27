@@ -11,6 +11,8 @@
 		<config>src/main/resources/chapter2/spring-context.xml</config>
 		<config>src/main/resources/chapter3/profileConfig.xml</config>
 		<config>src/main/resources/chapter3/rootProfileConfig.xml</config>
+		<config>src/main/resources/chapter3/scopeAndProxy.xml</config>
+		<config>src/main/resources/chapter4/aspectJConfig.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
